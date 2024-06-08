@@ -17,7 +17,8 @@ Many public datasets lack truly challenging real-world scenarios. Traditional me
 
 ## LIDAR Inertial Odometry?
 LiDAR Inertial Odometry (LIO) is an approach that fuses data from two key sensors: LiDAR and an Inertial Measurement Unit (IMU). LiDAR provides dense 3D point clouds representing the geometric structure of the environment, while the IMU directly measures the sensor's linear accelerations and rotational motions. By tightly integrating these complementary streams, LIO algorithms can estimate the sensor's trajectory over time with high accuracy and robustness. The IMU's motion data aids point cloud registration, reduces distortion, and provides a good initial guess, while the LiDAR's mapping constrains drift errors, enhancing odometry performance compared to using either modality alone.
-![LIO_system](https://github.com/vishapraj/Cv_and_Drones_EEA/assets/126682925/a30702b9-ef9c-4787-99bf-4845ec8a927c)
+![LIO_system](https://github.com/vishapraj/COIN-LIO-Complementary-Intensity-Augmented-LiDAR-Inertial-Odometry/assets/126682925/033ad0bd-aa59-4e5e-bd28-1511db1995b7)
+
 
 
 
@@ -28,7 +29,7 @@ LiDAR Inertial Odometry (LIO) is an approach that fuses data from two key sensor
 
 Traditional LiDAR odometry approaches like LOAM work well in structured environments with plenty of geometric features like walls, corners, and planes. LOAM extracts edge and plane points from the point cloud and registers them against a map built incrementally. This approach performs robustly when there are enough distinct geometric features to match against.
 However, consider a scenario where the robot enters a long tunnel or a vast open field. In such geometrically degenerate environments, there are few distinct edges or planes to match against. LOAM and similar feature-based methods struggle in these cases, leading to potential failures or inaccuracies in odometry estimation.
-![Mappings](https://github.com/vishapraj/Cv_and_Drones_EEA/assets/126682925/bbf82793-67e3-41b5-8184-ed14a2c884a9)
+![Mappings](https://github.com/vishapraj/COIN-LIO-Complementary-Intensity-Augmented-LiDAR-Inertial-Odometry/assets/126682925/a347ad71-94e5-4cbb-af22-998d1702c86e)
 
 
 ## Solution-COIN-LIO
@@ -39,7 +40,8 @@ The processed intensity images are used as an additional modality (source of inf
 A new feature selection scheme is proposed that detects uninformative directions in the point cloud registration and explicitly selects patches from the intensity images that can provide complementary information.
 The system then fuses the photometric (brightness) error minimization from the image patches with inertial measurements (from IMU) and the traditional point-to-plane registration in an Extended Kalman Filter.
 
-[COIN-LIO](https://github.com/vishapraj/Cv_and_Drones_EEA/assets/126682925/cf70fc72-73f9-41fb-a7af-90ef5e2082d7)
+[COIN-LIO_video.webm](https://github.com/vishapraj/COIN-LIO-Complementary-Intensity-Augmented-LiDAR-Inertial-Odometry/assets/126682925/dc32615d-ffcf-4f3f-b541-a024285eab43)
+
 
 ## What COIN-LIO Adds: Photometric Component
 
@@ -111,7 +113,7 @@ j
 Cp 
 j
 ​
-  using angles derived from the point's position: ![Screenshot from 2024-06-09 03-25-23](https://github.com/vishapraj/Cv_and_Drones_EEA/assets/126682925/3b1c4984-0bcc-4470-b9f2-6fddc504ecd1)
+  using angles derived from the point's position: ![Equation1](https://github.com/vishapraj/COIN-LIO-Complementary-Intensity-Augmented-LiDAR-Inertial-Odometry/assets/126682925/ea2827cb-5fd3-4854-8726-5c170355c3f6)
 Here, 
 𝑢
 𝑗
@@ -169,7 +171,9 @@ j
 𝑗
 2
 
-![Screenshot from 2024-06-09 03-26-51](https://github.com/vishapraj/Cv_and_Drones_EEA/assets/126682925/8db43648-8f75-4520-8413-fbf9688ba19e)
+
+
+![Equation2](https://github.com/vishapraj/COIN-LIO-Complementary-Intensity-Augmented-LiDAR-Inertial-Odometry/assets/126682925/b30aa774-477b-4ae7-8962-1703673aa35f)
 
 ## RESULTS
 
@@ -181,8 +185,8 @@ Various sequences are included to test different conditions, such as Cloister (l
 
 #### Conclusion
 The proposed pipeline demonstrates superior performance and robustness across various challenging scenarios by effectively integrating intensity information with geometric data, while maintaining computational efficiency.
-![Screenshot from 2024-06-09 03-42-35](https://github.com/vishapraj/Cv_and_Drones_EEA/assets/126682925/7d7d462d-b44a-4e94-81e2-ba1982a302ae)
 
+![NEWER College_Dataset](https://github.com/vishapraj/COIN-LIO-Complementary-Intensity-Augmented-LiDAR-Inertial-Odometry/assets/126682925/13529f90-6cb4-499a-b179-3728fcbc0efe)
 ### 2. ENWIDE Dataset:-
 #### * Sensor Used:
 Hand-held Ouster OS0 128-beam LiDAR with an integrated IMU (Inertial Measurement Unit).
@@ -191,7 +195,7 @@ Five distinct real-world environments were recorded, each with long sections of 
 
 #### Conclusion
 The new dataset was meticulously designed to challenge LIO and LO algorithms with environments that lack distinct geometric features. By recording sequences in various challenging environments and including both smooth and dynamic motions, the dataset provides a comprehensive benchmark for evaluating robustness and accuracy of different approaches. This helps in understanding how well the proposed and existing methods perform in real-world scenarios where traditional geometric cues are minimal.
-![Screenshot from 2024-06-09 03-49-52](https://github.com/vishapraj/Cv_and_Drones_EEA/assets/126682925/19dd95a4-734b-4323-8546-04fe88577ab5)
+![ENWIDE_Dataset](https://github.com/vishapraj/COIN-LIO-Complementary-Intensity-Augmented-LiDAR-Inertial-Odometry/assets/126682925/4997a23d-e39c-43c6-9535-fc9dadc29625)
 
 
 
