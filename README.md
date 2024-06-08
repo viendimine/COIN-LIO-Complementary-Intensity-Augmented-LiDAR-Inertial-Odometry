@@ -68,3 +68,130 @@ Imagine a robot navigating a corridor with plain white walls:
 The robot uses LiDAR to detect the flat walls and IMU to understand its motion. However, in a long, featureless corridor, it might struggle to get accurate position updates due to the lack of distinctive 3D features.
 ### 2.With Photometric Data:
 The robot also uses the intensity variations on the walls (e.g., small marks, textures, or light differences). Even if the walls are geometrically flat, the photometric data provides additional cues that help in accurately tracking the robot’s movement.
+
+## 3-D point projection to 2-D
+* The point 
+𝐿
+𝑗
+𝑝
+𝑗
+=
+[
+𝑥
+𝑗
+,
+𝑦
+𝑗
+,
+𝑧
+𝑗
+]
+L 
+j
+​
+ p 
+j
+​
+ =[x 
+j
+​
+ ,y 
+j
+​
+ ,z 
+j
+​
+ ] represents a point in 3D space as seen by the LiDAR sensor.
+
+### Spherical Projection:-
+* This converts the 3D point into 2D image coordinates 
+𝐶
+𝑝
+𝑗
+Cp 
+j
+​
+  using angles derived from the point's position: ![Screenshot from 2024-06-09 03-25-23](https://github.com/vishapraj/Cv_and_Drones_EEA/assets/126682925/3b1c4984-0bcc-4470-b9f2-6fddc504ecd1)
+Here, 
+𝑢
+𝑗
+u 
+j
+​
+  and 
+𝑣
+𝑗
+v 
+j
+​
+  are the image coordinates, 
+𝑤
+w and 
+ℎ
+h are the image width and height, 
+atan2
+(
+𝑦
+𝑗
+,
+𝑥
+𝑗
+)
+atan2(y 
+j
+​
+ ,x 
+j
+​
+ ) gives the horizontal angle, and 
+arcsin
+(
+𝑧
+𝑗
+𝑅
+)
+arcsin( 
+R
+z 
+j
+​) gives the vertical angle, with:
+𝑅
+=
+𝑥
+𝑗
+2
++
+𝑦
+𝑗
+2
++
+𝑧
+𝑗
+2
+
+![Screenshot from 2024-06-09 03-26-51](https://github.com/vishapraj/Cv_and_Drones_EEA/assets/126682925/8db43648-8f75-4520-8413-fbf9688ba19e)
+
+## RESULTS
+
+### 1. Newer College Dataset:-
+#### * Sensor Used:
+A handheld 128-beam Ouster OS0 LiDAR.
+#### * Sequences:
+Various sequences are included to test different conditions, such as Cloister (large structures and slow motions), Quad-Hard (aggressive rotations), and Stairs (narrow stairways).
+
+#### Conclusion
+The proposed pipeline demonstrates superior performance and robustness across various challenging scenarios by effectively integrating intensity information with geometric data, while maintaining computational efficiency.
+![Screenshot from 2024-06-09 03-42-35](https://github.com/vishapraj/Cv_and_Drones_EEA/assets/126682925/7d7d462d-b44a-4e94-81e2-ba1982a302ae)
+
+### 2. ENWIDE Dataset:-
+#### * Sensor Used:
+Hand-held Ouster OS0 128-beam LiDAR with an integrated IMU (Inertial Measurement Unit).
+#### * Environment:
+Five distinct real-world environments were recorded, each with long sections of geometric degeneracy but with well-constrained areas at the beginning and end of the sequences.
+
+#### Conclusion
+The new dataset was meticulously designed to challenge LIO and LO algorithms with environments that lack distinct geometric features. By recording sequences in various challenging environments and including both smooth and dynamic motions, the dataset provides a comprehensive benchmark for evaluating robustness and accuracy of different approaches. This helps in understanding how well the proposed and existing methods perform in real-world scenarios where traditional geometric cues are minimal.
+![Screenshot from 2024-06-09 03-49-52](https://github.com/vishapraj/Cv_and_Drones_EEA/assets/126682925/19dd95a4-734b-4323-8546-04fe88577ab5)
+
+
+
