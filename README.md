@@ -33,5 +33,8 @@ LiDAR Inertial Odometry (LIO) is an approach that fuses data from two key sensor
 
 
 
+
 Traditional LiDAR odometry approaches like LOAM work well in structured environments with plenty of geometric features like walls, corners, and planes. LOAM extracts edge and plane points from the point cloud and registers them against a map built incrementally. This approach performs robustly when there are enough distinct geometric features to match against.
 However, consider a scenario where the robot enters a long tunnel or a vast open field. In such geometrically degenerate environments, there are few distinct edges or planes to match against. LOAM and similar feature-based methods struggle in these cases, leading to potential failures or inaccuracies in odometry estimation.
+![Mappings](https://github.com/vishapraj/Cv_and_Drones_EEA/assets/126682925/bbf82793-67e3-41b5-8184-ed14a2c884a9)
+
