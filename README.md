@@ -40,7 +40,7 @@ The processed intensity images are used as an additional modality (source of inf
 A new feature selection scheme is proposed that detects uninformative directions in the point cloud registration and explicitly selects patches from the intensity images that can provide complementary information.
 The system then fuses the photometric (brightness) error minimization from the image patches with inertial measurements (from IMU) and the traditional point-to-plane registration in an Extended Kalman Filter.
 
-[COIN-LIO_video.webm](https://github.com/vishapraj/COIN-LIO-Complementary-Intensity-Augmented-LiDAR-Inertial-Odometry/assets/126682925/dc32615d-ffcf-4f3f-b541-a024285eab43)
+[COIN-LIO_video.webm](https://github.com/vishapraj/COIN-LIO-Complementary-Intensity-Augmented-LiDAR-Inertial-Odometry/126682925/dc32615d-ffcf-4f3f-b541-a024285eab43)
 
 
 ## What COIN-LIO Adds: Photometric Component
